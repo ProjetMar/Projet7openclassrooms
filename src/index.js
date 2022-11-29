@@ -1,17 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import * as React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
+import './index.css'
+import Home from './pages/Home'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import reportWebVitals from './reportWebVitals'
+import Propos from './pages/Propos'
+import Error from './components/Error'
+import { createGlobalStyle } from 'styled-components'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { Outlet } from 'react-router-dom'
+
+const PageLayout = () => (
+  <>
+    <Outlet />
+    <Footer />
+  </>
+)
+
+const GlobalStyle = createGlobalStyle`
+    div {
+        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-weight : 500;
+    }
+`
+
+const App = () => {
+  let routes = useRoutes([
+    {
+      element: <PageLayout />,
+      children: [
+        { path: '/', element: <Home /> },
+        { path: '/pages/Propos', element: <Propos /> },
+      ],
+    },
+    { path: '*', element: <Error /> },
+    // ...
+  ])
+
+  return routes
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
+  <Router>
+    <GlobalStyle />
+    <Header />
     <App />
-  </React.StrictMode>
-);
-
+  </Router>
+)
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()
