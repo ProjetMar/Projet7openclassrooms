@@ -11,6 +11,7 @@ import Error from './components/Error'
 import { createGlobalStyle } from 'styled-components'
 
 import { Outlet } from 'react-router-dom'
+import Logement from './pages/Logement'
 
 const PageLayout = () => (
   <>
@@ -33,6 +34,7 @@ const App = () => {
       children: [
         { path: '/', element: <Home /> },
         { path: '/pages/Propos', element: <Propos /> },
+        { path: '/pages/Logement/:id', element: <Logement /> },
       ],
     },
     { path: '*', element: <Error /> },

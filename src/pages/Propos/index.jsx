@@ -1,4 +1,6 @@
 import Collapse from '../../components/Collapse'
+import NaturePP from '../../assets/NaturePP.png'
+import Banner from '../../components/banner'
 
 const Caracteristiques = [
   {
@@ -28,59 +30,28 @@ const Caracteristiques = [
 ]
 
 function Propos() {
-  /* const [isOpen, setIsOpen] = useState(true)*/
   return (
     <div>
-      <Collapse
-        name={Caracteristiques[0].name}
-        description={Caracteristiques[0].description}
-      />
-      <Collapse
-        name={Caracteristiques[1].name}
-        description={Caracteristiques[1].description}
-      />
-      <Collapse
-        name={Caracteristiques[2].name}
-        description={Caracteristiques[2].description}
-      />
-      <Collapse
-        name={Caracteristiques[3].name}
-        description={Caracteristiques[3].description}
-      />
+      <Banner image={NaturePP} description={''} isPropsPage={true} />
+      <div>
+        <Collapse
+          name={Caracteristiques[0].name}
+          description={Caracteristiques[0].description}
+        />
+        <Collapse
+          name={Caracteristiques[1].name}
+          description={Caracteristiques[1].description}
+        />
+        <Collapse
+          name={Caracteristiques[2].name}
+          description={Caracteristiques[2].description}
+        />
+        <Collapse
+          name={Caracteristiques[3].name}
+          description={Caracteristiques[3].description}
+        />
+      </div>
     </div>
-    /* <div>
-      {Caracteristiques.map((Type) =>
-        isOpen ? (
-          /*<div>
-      {Caracteristiques.map((Type) =>
-        isOpen ? (*/
-    /* <div>
-            <h1>{Type.name}</h1>
-            <button onClick={() => setIsOpen(false)}>
-              <img
-                src={flechBas}
-                alt="fleche pour montrer plus d information"
-              />
-            </button>
-          </div>
-        ) : (
-          <div>
-            <div>
-              <h1>{Type.name}</h1>
-              <button onClick={() => setIsOpen(true)}>
-                <img
-                  src={flechHaut}
-                  alt="fleche pour montrer plus d information"
-                />
-              </button>
-            </div>
-            <div>
-              <p>{Type.description}</p>
-            </div>
-          </div>
-        )
-      )}*/
-    /*</div>*/
   )
 }
 export default Propos

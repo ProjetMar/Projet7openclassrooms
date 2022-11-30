@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-const CardWrapper = styled.div`
+import { Link } from 'react-router-dom'
+const CardWrapper = styled(Link)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -35,9 +36,9 @@ const CardTitle = styled.span`
     padding-right: 0px;
   }
 `
-function Card({ title, cover }) {
+function Card({ title, cover, id }) {
   return (
-    <CardWrapper>
+    <CardWrapper to={`pages/Logement/:${id}`}>
       <CardImage src={cover} alt="appartement" />
       <CardTitle>{title}</CardTitle>
     </CardWrapper>
