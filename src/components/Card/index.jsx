@@ -38,7 +38,7 @@ const CardTitle = styled.span`
 `
 function Card({ title, cover, id }) {
   return (
-    <CardWrapper to={`pages/Logement/:${id}`}>
+    <CardWrapper to={`pages/Logement/${id}`}>
       <CardImage src={cover} alt="appartement" />
       <CardTitle>{title}</CardTitle>
     </CardWrapper>
