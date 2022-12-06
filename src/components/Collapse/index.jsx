@@ -7,18 +7,25 @@ const CollapseTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 31px 14.5%;
-  padding: 5px 16px 5px 18px;
+  margin-top: 31px;
+  margin-bottom: 31px;
+  /*margin: 31px 14.5%;*/
+  /*padding: 5px 16px 5px 18px;*/
   background-color: #ff6060;
   color: white;
   font-size: 24px;
-  border-radius: 5px;
-  @media (max-width: 870px) {
+  border-radius: 10px;
+  height: 52px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-top: 0px;
+  /*@media (max-width: 870px) {
     margin: 20px 20px;
-  }
+  }*/
   ${(props) =>
     props.$isdescription &&
     `
+    min-height: 52px;
     margin-bottom : 0px;
     margin-top: 0px;
     @media (max-width: 870px) {
@@ -36,23 +43,30 @@ const CollapseName = styled.p`
   height: 34px;
   display: flex;
   align-items: center;
+  @media (max-width: 870px) {
+    font-size: 1.1rem;
+  }
 `
 const CollapseDescription = styled.div`
-  margin-right: 14.5%;
-  margin-left: 14.5%;
+  /*margin-right: 14.5%;*/
+  /*margin-left: 14.5%;*/
   margin-bottom: 20px;
-  padding-top: 27px;
-  padding-left: 18px;
+  height: 100%;
   padding: 27px 27px 19px 18px;
   color: black;
   background-color: #f7f7f7;
   font-size: 24px;
+  line-height: 142.6%;
   color: #ff6060;
   font-weight: 400;
   line-height: 34.22px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   @media (max-width: 870px) {
-    margin: 0px 20px;
+    /*margin: 0px 20px;*/
     margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 142.6%;
   }
 `
 const CollapseOpen = styled.div`

@@ -12,6 +12,12 @@ const StyledText = styled.p`
   color: #ff6060;
   font-size: 36px;
   margin: 0px;
+  @media (max-width: 870px) {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-right: 14.5%;
+    margin-left: 14.5%;
+  }
 `
 const StyledLink = styled(Link)`
   color: #ff6060;
@@ -25,6 +31,11 @@ const StyledLink = styled(Link)`
 const StyledImg = styled.img`
   margin-top: 106px;
   margin-bottom: 66px;
+  @media (max-width: 870px) {
+    height: 99px;
+    margin-top: 198px;
+    margin-bottom: 11px;
+  }
 `
 
 function Error() {

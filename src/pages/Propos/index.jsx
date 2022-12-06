@@ -1,6 +1,14 @@
 import Collapse from '../../components/Collapse'
 import NaturePP from '../../assets/NaturePP.png'
 import Banner from '../../components/banner'
+import styled from 'styled-components'
+const ConteneurDiv = styled.div`
+  margin-right: 14.5%;
+  margin-left: 14.5%;
+  @media (max-width: 870px) {
+    margin-right: 5%;
+    margin-left: 5%;
+`
 
 const Caracteristiques = [
   {
@@ -33,7 +41,7 @@ function Propos() {
   return (
     <div>
       <Banner image={NaturePP} description={''} isPropsPage={true} />
-      <div>
+      <ConteneurDiv>
         <Collapse
           name={Caracteristiques[0].name}
           description={Caracteristiques[0].description}
@@ -50,7 +58,7 @@ function Propos() {
           name={Caracteristiques[3].name}
           description={Caracteristiques[3].description}
         />
-      </div>
+      </ConteneurDiv>
     </div>
   )
 }
