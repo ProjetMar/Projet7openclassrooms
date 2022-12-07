@@ -1,7 +1,11 @@
 import Collapse from '../../components/Collapse'
 import NaturePP from '../../assets/NaturePP.png'
+import NaturePPMobile from '../../assets/NaturePPMobile.png'
 import Banner from '../../components/banner'
 import styled from 'styled-components'
+
+import UseWindowSize from '../../components/UseWindowSize'
+
 const ConteneurDiv = styled.div`
   margin-right: 14.5%;
   margin-left: 14.5%;
@@ -38,9 +42,14 @@ const Caracteristiques = [
 ]
 
 function Propos() {
+  const size = UseWindowSize()
   return (
     <div>
-      <Banner image={NaturePP} description={''} isPropsPage={true} />
+      {size.width > 870 ? (
+        <Banner image={NaturePP} description={''} isPropsPage={true} />
+      ) : (
+        <Banner image={NaturePPMobile} description={''} isPropsPage={true} />
+      )}
       <ConteneurDiv>
         <Collapse
           name={Caracteristiques[0].name}
