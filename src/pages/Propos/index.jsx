@@ -1,7 +1,7 @@
 import Collapse from '../../components/Collapse'
 import NaturePP from '../../assets/NaturePP.png'
 import NaturePPMobile from '../../assets/NaturePPMobile.png'
-import Banner from '../../components/banner'
+import Banner from '../../components/Banner'
 import styled from 'styled-components'
 
 import UseWindowSize from '../../components/UseWindowSize'

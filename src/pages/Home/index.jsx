@@ -2,7 +2,7 @@ import DataKasa from '../../Data.json'
 import ImageHome from '../../assets/NatureBackground.png'
 import styled from 'styled-components'
 import Card from '../../components/Card'
-import Banner from '../../components/banner'
+import Banner from '../../components/Banner'
 
 const CardsContainer = styled.div`
   display: grid;
