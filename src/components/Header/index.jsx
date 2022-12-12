@@ -10,7 +10,7 @@ const NavContainer = styled.nav`
     padding: 20px 20px;
   }
 `
-const StyledLink = styled(Link)`
+const ElementLink = styled(Link)`
   color: #ff6060;
   font-size: 24px;
   text-decoration: none;
@@ -29,7 +29,7 @@ const StyledLink = styled(Link)`
   }
   `}
 `
-const Styledlogo = styled.img`
+const ElementImg = styled.img`
   @media (max-width: 870px) {
     width: 145px;
     heigth: 38px;
@@ -40,13 +40,13 @@ function Header() {
   return (
     <NavContainer>
       <Link to="/">
-        <Styledlogo src={Logo} alt="logo du kasa" />
+        <ElementImg src={Logo} alt="logo du kasa" />
       </Link>
       <div>
-        <StyledLink to="/" $isFullLink>
+        <ElementLink to="/" $isFullLink>
           Accueil
-        </StyledLink>
-        <StyledLink to="/pages/Propos">A propos</StyledLink>
+        </ElementLink>
+        <ElementLink to="/pages/Propos">A propos</ElementLink>
       </div>
     </NavContainer>
   )

@@ -34,9 +34,9 @@ const App = () => {
       children: [
         { path: '/', element: <Home /> },
         { path: '/pages/Propos', element: <Propos /> },
-        { path: '/pages/Logement/:id', element: <Logement /> },
       ],
     },
+    { path: '/pages/Logement/:id', element: <Logement /> },
     { path: '*', element: <Error /> },
     // ...
   ])

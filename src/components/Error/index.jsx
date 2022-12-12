@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ErrorPic from '../../assets/404.png'
-const StyledError = styled.div`
+const ConteneurDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
-const StyledText = styled.p`
+const ElementP = styled.p`
   color: #ff6060;
   font-size: 36px;
   margin: 0px;
@@ -19,7 +19,7 @@ const StyledText = styled.p`
     margin-left: 14.5%;
   }
 `
-const StyledLink = styled(Link)`
+const ElementLink = styled(Link)`
   color: #ff6060;
   font-size: 18px;
   text-decoration: none;
@@ -28,7 +28,7 @@ const StyledLink = styled(Link)`
     text-decoration: underline;
   }
 `
-const StyledImg = styled.img`
+const ElementImg = styled.img`
   margin-top: 106px;
   margin-bottom: 66px;
   @media (max-width: 870px) {
@@ -40,11 +40,11 @@ const StyledImg = styled.img`
 
 function Error() {
   return (
-    <StyledError>
-      <StyledImg src={ErrorPic} alt="404 " />
-      <StyledText>oups! La page que vous demandez n'existe pas.</StyledText>
-      <StyledLink to="/">Retourner vers la page d'acceuil</StyledLink>
-    </StyledError>
+    <ConteneurDiv>
+      <ElementImg src={ErrorPic} alt="404 " />
+      <ElementP>oups! La page que vous demandez n'existe pas.</ElementP>
+      <ElementLink to="/">Retourner vers la page d'acceuil</ElementLink>
+    </ConteneurDiv>
   )
 }
 export default Error

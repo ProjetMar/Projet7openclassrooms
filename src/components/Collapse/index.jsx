@@ -3,7 +3,7 @@ import flechBas from '../../assets/flechBas.png'
 import flechHaut from '../../assets/flechHaut.png'
 import styled from 'styled-components'
 
-const CollapseTitle = styled.div`
+const ConteneurTitleDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,11 +34,11 @@ const CollapseTitle = styled.div`
       }
     `}
 `
-const Collapsebutton = styled.button`
+const ElementButton = styled.button`
   background-color: #ff6060;
   border: none;
 `
-const CollapseName = styled.p`
+const ElementP = styled.p`
   margin: 0px;
   height: 34px;
   display: flex;
@@ -47,7 +47,7 @@ const CollapseName = styled.p`
     font-size: 1.1rem;
   }
 `
-const CollapseDescription = styled.div`
+const ConteneurDescriptionDiv = styled.div`
   /*margin-right: 14.5%;*/
   /*margin-left: 14.5%;*/
   margin-bottom: 20px;
@@ -69,7 +69,7 @@ const CollapseDescription = styled.div`
     line-height: 142.6%;
   }
 `
-const CollapseOpen = styled.div`
+const ConteneurOpenDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0px;
@@ -77,31 +77,31 @@ const CollapseOpen = styled.div`
     margin: 0px;
   }
 `
-const Text = styled.p`
+const ElementDescriptionP = styled.p`
   margin: 0px;
 `
 
 function Collapse({ name, description }) {
-  const [isOpen, setIsOpen] = useState(true)
-  return isOpen ? (
-    <CollapseTitle>
-      <CollapseName>{name}</CollapseName>
-      <Collapsebutton onClick={() => setIsOpen(false)}>
+  const [isClosed, setIsClosed] = useState(true)
+  return isClosed ? (
+    <ConteneurTitleDiv>
+      <ElementP>{name}</ElementP>
+      <ElementButton onClick={() => setIsClosed(false)}>
         <img src={flechBas} alt="fleche pour montrer plus d information" />
-      </Collapsebutton>
-    </CollapseTitle>
+      </ElementButton>
+    </ConteneurTitleDiv>
   ) : (
-    <CollapseOpen>
-      <CollapseTitle $isdescription>
-        <CollapseName>{name}</CollapseName>
-        <Collapsebutton onClick={() => setIsOpen(true)}>
+    <ConteneurOpenDiv>
+      <ConteneurTitleDiv $isdescription>
+        <ElementP>{name}</ElementP>
+        <ElementButton onClick={() => setIsClosed(true)}>
           <img src={flechHaut} alt="fleche pour montrer plus d information" />
-        </Collapsebutton>
-      </CollapseTitle>
-      <CollapseDescription>
-        <Text>{description}</Text>
-      </CollapseDescription>
-    </CollapseOpen>
+        </ElementButton>
+      </ConteneurTitleDiv>
+      <ConteneurDescriptionDiv>
+        <ElementDescriptionP>{description}</ElementDescriptionP>
+      </ConteneurDescriptionDiv>
+    </ConteneurOpenDiv>
   )
 }
 export default Collapse

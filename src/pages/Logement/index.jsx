@@ -1,3 +1,4 @@
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import DataKasa from '../../Data.json'
 /*import { useState } from 'react'*/
@@ -5,6 +6,8 @@ import SlideShow from '../../components/SlideShow'
 import Etoiles from '../../components/Etoiles/Etoiles'
 import Collapse from '../../components/Collapse'
 import styled from 'styled-components'
+import Error from '../../components/Error'
+import Footer from '../../components/Footer'
 const LogementInfos = styled.div`
   display: flex;
   justify-content: space-between;
@@ -105,56 +108,65 @@ function Logement() {
   console.log(Id)
   console.log(Id.id)
   console.log(DataKasa[0])
-  const appartement = DataKasa.filter((appar) => appar.id === Id.id)
-  console.log(appartement)
-  const photos = appartement[0].pictures
-  console.log(photos)
-  const nEtoiles = appartement[0].rating
-  return (
-    <ConteneurDiv>
-      <SlideShow photos={photos} />
-      <ContenairDiv>
-        <LogementInfos>
-          <div>
-            <LogementTitle>{appartement[0].title}</LogementTitle>
-            <LogementLocation>{appartement[0].location}</LogementLocation>
-            <LogementListeTag>
-              {appartement[0].tags.map((tag) => (
-                <Logementag key={tag}>{tag}</Logementag>
-              ))}
-            </LogementListeTag>
-          </div>
-          <GlobalDiv>
-            <LogementPersonne>
-              <LogementPersonneName>
-                {appartement[0].host.name}
-              </LogementPersonneName>
-              <LogementPersonneImg
-                src={appartement[0].host.picture}
-                alt="face"
+  const tab = DataKasa.map((appar) => appar.id)
+  console.log(tab)
+  if (!tab.includes(Id.id)) {
+    return <Error />
+  } else {
+    const appartement = DataKasa.filter((appar) => appar.id === Id.id)
+    console.log(appartement)
+    const photos = appartement[0].pictures
+    console.log(photos)
+    const nEtoiles = appartement[0].rating
+    return (
+      <React.Fragment>
+        <ConteneurDiv>
+          <SlideShow photos={photos} />
+          <ContenairDiv>
+            <LogementInfos>
+              <div>
+                <LogementTitle>{appartement[0].title}</LogementTitle>
+                <LogementLocation>{appartement[0].location}</LogementLocation>
+                <LogementListeTag>
+                  {appartement[0].tags.map((tag) => (
+                    <Logementag key={tag}>{tag}</Logementag>
+                  ))}
+                </LogementListeTag>
+              </div>
+              <GlobalDiv>
+                <LogementPersonne>
+                  <LogementPersonneName>
+                    {appartement[0].host.name}
+                  </LogementPersonneName>
+                  <LogementPersonneImg
+                    src={appartement[0].host.picture}
+                    alt="face"
+                  />
+                </LogementPersonne>
+                <Etoiles nEtoiles={nEtoiles} />
+              </GlobalDiv>
+            </LogementInfos>
+            <CollapseDiv>
+              <Collapse
+                name={'Description'}
+                description={appartement[0].description}
               />
-            </LogementPersonne>
-            <Etoiles nEtoiles={nEtoiles} />
-          </GlobalDiv>
-        </LogementInfos>
-        <CollapseDiv>
-          <Collapse
-            name={'Description'}
-            description={appartement[0].description}
-          />
-          <Collapse
-            name={'Equipements'}
-            description={
-              <UlStyle>
-                {appartement[0].equipments.map((equ) => (
-                  <li key={equ}>{equ}</li>
-                ))}
-              </UlStyle>
-            }
-          />
-        </CollapseDiv>
-      </ContenairDiv>
-    </ConteneurDiv>
-  )
+              <Collapse
+                name={'Equipements'}
+                description={
+                  <UlStyle>
+                    {appartement[0].equipments.map((equ) => (
+                      <li key={equ}>{equ}</li>
+                    ))}
+                  </UlStyle>
+                }
+              />
+            </CollapseDiv>
+          </ContenairDiv>
+        </ConteneurDiv>
+        <Footer />
+      </React.Fragment>
+    )
+  }
 }
 export default Logement

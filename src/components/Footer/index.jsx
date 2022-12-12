@@ -11,7 +11,7 @@ const NavContainer = styled.div`
   padding-bottom: 29px;
   margin-top: 200px;
 `
-const StyledText = styled.p`
+const ElementP = styled.p`
   color: white;
   font-size: 24px;
   margin: 0px;
@@ -28,7 +28,7 @@ function Footer() {
         <img src={LogoFooter} alt="logo du kasa" />
       </Link>
       <div>
-        <StyledText>© 2020 Kasa. All rights reserved</StyledText>
+        <ElementP>© 2020 Kasa. All rights reserved</ElementP>
       </div>
     </NavContainer>
   )

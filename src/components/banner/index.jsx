@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import NatureMobile from '../../assets/NatureMobile.png'
 
-const StyledDiv = styled.div`
+const ConteneurDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,15 +19,10 @@ const StyledDiv = styled.div`
     @media (max-width: 870px) {
         margin: 0px 5%;
         width: 90%;
-        display: flex;
-       align-items: center;
-       justify-content: center
-       background: url(${NatureMobile?.assets});
-    }
-      
+    }   
     `}
 `
-const ImageStyle = styled.img`
+const ElementImg = styled.img`
   width: 100%;
   @media (max-width: 870px) {
     height: 111px;
@@ -39,7 +33,7 @@ const ImageStyle = styled.img`
         height: 223px;
    }`}
 `
-const StyledText = styled.p`
+const ElementP = styled.p`
   position: absolute;
   color: white;
   font-size: 48px;
@@ -52,19 +46,18 @@ const StyledText = styled.p`
 function Banner({ image, description, isPropsPage }) {
   if (isPropsPage) {
     return (
-      <StyledDiv $isImagePropos>
-        <ImageStyle $isImagePropos src={image} alt="nature" />
-        <StyledText>{description}</StyledText>
-      </StyledDiv>
+      <ConteneurDiv $isImagePropos>
+        <ElementImg $isImagePropos src={image} alt="nature" />
+        <ElementP>{description}</ElementP>
+      </ConteneurDiv>
     )
   }
   return (
-    <StyledDiv>
-      <ImageStyle src={image} alt="nature" />
-      <StyledText>{description}</StyledText>
-    </StyledDiv>
+    <ConteneurDiv>
+      <ElementImg src={image} alt="nature" />
+      <ElementP>{description}</ElementP>
+    </ConteneurDiv>
   )
 }
 
 export default Banner
-//Chez vous, partout et ailleurs

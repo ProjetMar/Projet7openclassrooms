@@ -57,9 +57,10 @@ function SlideShow({ photos }) {
   console.log(nexIndice)
   if (n === 1) {
     return (
-      <div>
+      <SlideShowWrapper>
         <SlideShowImg src={photos[photoIndice]} alt="appartement" />
-      </div>
+        <SlideShowNumber>{`1/1`}</SlideShowNumber>
+      </SlideShowWrapper>
     )
   } else {
     return (

@@ -1,5 +1,4 @@
-import EtoileRougeF from '../EtoileRougeF/EtoileRougeF'
-import EtoileGrisF from '../EtoileGrisF/EtoileGrisF'
+import EtoileC from '../../components/EtoileC'
 import EtoileRouge from '../../assets/EtoileRouge.png'
 import EtoileGris from '../../assets/EtoileGris.png'
 import styled from 'styled-components'
@@ -10,14 +9,14 @@ function Etoiles({ nEtoiles }) {
   if (nEtoiles <= 5) {
     return (
       <ConteneurDiv>
-        <EtoileRougeF nEtoiles={nEtoiles} EtoileRouge={EtoileRouge} />
-        <EtoileGrisF nEtoilesRest={5 - nEtoiles} EtoileGris={EtoileGris} />
+        <EtoileC nEtoiles={nEtoiles} EtoileC={EtoileRouge} />
+        <EtoileC nEtoiles={5 - nEtoiles} EtoileC={EtoileGris} />
       </ConteneurDiv>
     )
   } else {
     return (
       <ConteneurDiv>
-        <EtoileRougeF nEtoiles={nEtoiles} EtoileRouge={EtoileRouge} />
+        <EtoileC nEtoiles={nEtoiles} EtoileC={EtoileRouge} />
       </ConteneurDiv>
     )
   }
